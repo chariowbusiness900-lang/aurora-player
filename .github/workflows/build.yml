@@ -47,8 +47,8 @@ jobs:
         if: github.event_name != 'pull_request'
         shell: pwsh
         env:
-          WINDOWS_PFX_BASE64: \${{ secrets.WINDOWS_PFX_BASE64 }}
-          WINDOWS_PFX_PASSWORD: \${{ secrets.WINDOWS_PFX_PASSWORD }}
+          WINDOWS_PFX_BASE64: ${{ secrets.WINDOWS_PFX_BASE64 }}
+          WINDOWS_PFX_PASSWORD: ${{ secrets.WINDOWS_PFX_PASSWORD }}
         run: |
           if (-not $env:WINDOWS_PFX_BASE64) {
             Write-Host "::warning::Aucun certificat configure (secrets WINDOWS_PFX_BASE64 / WINDOWS_PFX_PASSWORD). Binaires non signes."
