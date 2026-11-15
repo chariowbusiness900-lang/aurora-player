@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-view="home">
+  <div id="titlebar">
+    <div class="tb-brand">
+      <span class="tb-logo">&#9670;</span> Aurora Player
+    </div>
+    <div class="tb-search">
+      <input id="search" type="search" placeholder="Rechercher un titre, un album, un artiste..." />
+    </div>
+    <div class="tb-controls">
+      <button id="win-min" title="Réduire">&#x2013;</button>
+      <button id="win-max" title="Agrandir">&#x25A1;</button>
+      <button id="win-close" title="Fermer">&#x2715;</button>
+    </div>
+  </div>
+
+  <div id="shell">
+    <nav id="sidebar">
+      <button class="nav-item active" data-nav="home"><span class="ni-icon">&#8962;</span>Accueil</button>
+      <button class="nav-item" data-nav="tracks"><span class="ni-icon">&#9834;</span>Titres</button>
+      <button class="nav-item" data-nav="albums"><span class="ni-icon">&#9636;</span>Albums</button>
+      <button class="nav-item" data-nav="artists"><span class="ni-icon">&#9786;</span>Artistes</button>
+      <button class="nav-item" data-nav="playlists"><span class="ni-icon">&#8801;</span>Playlists</button>
+      <button class="nav-item" data-nav="favorites"><span class="ni-icon">&#9829;</span>Favoris</button>
+      <button class="nav-item" data-nav="recents"><span class="ni-icon">&#8634;</span>Récents</button>
+      <div class="nav-spacer"></div>
+      <button class="nav-item" data-nav="settings"><span class="ni-icon">&#9881;</span>Paramètres</button>
+    </nav>
+
+    <main id="main">
+      <section id="view-home" class="view"></section>
+      <section id="view-tracks" class="view"></section>
+      <section id="view-albums" class="view"></section>
+      <section id="view-artists" class="view"></section>
+      <section id="view-playlists" class="view"></section>
+      <section id="view-favorites" class="view"></section>
+      <section id="view-recents" class="view"></section>
+      <section id="view-settings" class="view"></section>
+      <section id="view-search" class="view"></section>
+    </main>
+  </div>
+
+  <div id="queue-panel" class="hidden">
+    <div class="queue-head">File d'attente <button id="queue-close">&#10005;</button></div>
+    <div id="queue-list"></div>
+  </div>
+
+  <footer id="playerbar">
+    <div id="pb-track">
+      <img id="pb-cover" alt="" />
+      <div id="pb-meta">
+        <div id="pb-title">Aucune lecture</div>
+        <div id="pb-artist"></div>
+      </div>
+      <button id="pb-fav" title="Favori">&#9825;</button>
+    </div>
+    <div id="pb-center">
+      <div id="pb-buttons">
+        <button id="pb-shuffle" title="Aléatoire">&#10554;</button>
+        <button id="pb-prev" title="Précédent">&#9198;</button>
+        <button id="pb-play" title="Lecture / Pause">&#9654;</button>
+        <button id="pb-next" title="Suivant">&#9197;</button>
+        <button id="pb-repeat" title="Répéter">&#8635;</button>
+      </div>
+      <div id="pb-seek">
+        <span id="pb-cur">0:00</span>
+        <input id="pb-range" type="range" min="0" max="1000" value="0" />
+        <span id="pb-dur">0:00</span>
+      </div>
+    </div>
+    <div id="pb-right">
+      <button id="pb-queue" title="File d'attente">&#9776;</button>
+      <input id="pb-vol" type="range" min="0" max="100" value="90" title="Volume" />
+    </div>
+  </footer>
+
+  <div id="toast" class="hidden"></div>
+  <audio id="audio"></audio>
+  <canvas id="palette-canvas" width="24" height="24" style="display:none"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
